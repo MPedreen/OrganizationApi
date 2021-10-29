@@ -1,7 +1,9 @@
+using Flunt.Validations;
+
 namespace Organization.Domain.Commands.Contracts
 {
-    public interface ICommand
+    public interface ICommand : IValidatable
     {
-        bool Validate();
+
     }
 }
