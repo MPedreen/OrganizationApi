@@ -1,5 +1,6 @@
 using System;
 using Flunt.Notifications;
+using Flunt.Validations;
 using Organization.Domain.Commands.Contracts;
 
 namespace Organization.Domain.Commands
@@ -20,7 +21,12 @@ namespace Organization.Domain.Commands
 
         public void Validate()
         {
-
+            AddNotifications(
+                new Contract()
+                .Requires()
+                .HasMinLen(Title, 3, "Title", "Por favor, descreva melhor esta tarefa!")
+                .HasMinLen(User, 6, "User", "Usuário inválido")
+            );
         }
     }
 }
