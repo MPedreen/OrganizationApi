@@ -1,23 +1,23 @@
 using System;
 using Flunt.Notifications;
 using Flunt.Validations;
-using Organization.Domain.Commands.Contracts;
 
-namespace Organization.Domain.Commands
+namespace Organization.Domain.Commands.Contracts
 {
-    public class CreateOrganizationCommand : Notifiable, ICommand
+    public class UpdateOrganizationCommand : Notifiable, ICommand
     {
-        public CreateOrganizationCommand() { }
-        public CreateOrganizationCommand(string title, string user, DateTime date)
+        public UpdateOrganizationCommand() { }
+
+        public UpdateOrganizationCommand(Guid id, string title, string user)
         {
+            Id = id;
             Title = title;
             User = user;
-            Date = date;
         }
 
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string User { get; set; }
-        public DateTime Date { get; set; }
 
         public void Validate()
         {
