@@ -18,7 +18,11 @@ namespace Organization.Domain.Commands.Contracts
         public string User { get; set; }
         public void Validate()
         {
-            throw new NotImplementedException();
+            AddNotifications(
+                new Contract()
+                .Requires()
+                .HasMinLen(User, 6, "User", "Usuário inválido!")
+            );
         }
     }
 }
