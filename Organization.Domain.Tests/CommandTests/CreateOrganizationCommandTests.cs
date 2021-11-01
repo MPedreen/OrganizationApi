@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Organization.Domain.Commands;
 
 namespace Organization.Domain.Tests.CommandTests
 {
@@ -6,10 +7,13 @@ namespace Organization.Domain.Tests.CommandTests
     public class CreateOrganizationCommandTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Dado_um_comando_invalido()
         {
-            //red
-            Assert.Fail();
+            var command = new CreateOrganizationCommand();
+        }
+        public void Dado_um_comando_valido()
+        {
+
         }
     }
 }
