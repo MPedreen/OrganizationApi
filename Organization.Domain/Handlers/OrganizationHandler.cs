@@ -1,6 +1,7 @@
 using Flunt.Notifications;
 using Organization.Domain.Commands;
 using Organization.Domain.Commands.Contracts;
+using Organization.Domain.Entities;
 using Organization.Domain.Handlers.Contracts;
 using Organization.Domain.Repositories;
 
@@ -20,6 +21,9 @@ namespace Organization.Domain.Handlers
             command.Validate();
             if (command.Invalid)
                 return new GenericCommandResult(false, "Ops, parece que sua tarefa está errada!", command.Notifications);
+
+            //gera a organization
+            var organization = new OrganizationItem(command.Title, command.User, command.Date);
         }
     }
 }
