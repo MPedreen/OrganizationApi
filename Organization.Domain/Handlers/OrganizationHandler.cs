@@ -24,6 +24,9 @@ namespace Organization.Domain.Handlers
 
             //gera a organization
             var organization = new OrganizationItem(command.Title, command.User, command.Date);
+
+            //Salva no banco
+            _repository.Create(organization);
         }
     }
 }
