@@ -18,7 +18,9 @@ namespace Organization.Domain.Tests.CommandTests
         [TestMethod]
         public void Dado_um_comando_valido()
         {
-
+            var command = new CreateOrganizationCommand("Titulo da Tarefa", "Pedro Ferreira", DateTime.Now);
+            command.Validate();
+            Assert.AreEqual(command.Valid, true);
         }
     }
 }
