@@ -1,13 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Organization.Domain.Tests
+namespace Organization.Domain.Tests.CommandTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CreateOrganizationCommandTests
     {
         [TestMethod]
         public void TestMethod1()
         {
+            //red
+            Assert.Fail();
         }
     }
 }
