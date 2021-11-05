@@ -7,6 +7,9 @@ namespace Organization.Domain.Tests.CommandTests
     [TestClass]
     public class CreateOrganizationCommandTests
     {
+        private readonly CreateOrganizationCommand _invalidCommand = new CreateOrganizationCommand("", "", DateTime.Now);
+
+
         [TestMethod]
         public void Dado_um_comando_invalido()
         {
