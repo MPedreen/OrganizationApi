@@ -8,7 +8,7 @@ namespace Organization.Domain.Tests.CommandTests
     public class CreateOrganizationCommandTests
     {
         private readonly CreateOrganizationCommand _invalidCommand = new CreateOrganizationCommand("", "", DateTime.Now);
-
+        private readonly CreateOrganizationCommand _validCommand = new CreateOrganizationCommand("Titulo da tarefa", "pedroferreira", DateTime.Now);
 
         [TestMethod]
         public void Dado_um_comando_invalido()
