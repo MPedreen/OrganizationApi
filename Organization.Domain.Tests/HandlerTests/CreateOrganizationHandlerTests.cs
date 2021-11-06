@@ -1,4 +1,7 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Organization.Domain.Commands;
+using Organization.Domain.Handlers;
 
 namespace Organization.Domain.Tests.HandlerTests
 {
@@ -8,6 +11,8 @@ namespace Organization.Domain.Tests.HandlerTests
         [TestMethod]
         public void Dado_um_comando_invalido_deve_interromper_a_execucao()
         {
+            var command = new CreateOrganizationCommand("", "", DateTime.Now);
+            var handler = new OrganizationHandler(null);
             Assert.Fail();
         }
 
