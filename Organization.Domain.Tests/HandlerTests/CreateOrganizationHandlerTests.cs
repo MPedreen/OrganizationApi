@@ -14,12 +14,15 @@ namespace Organization.Domain.Tests.HandlerTests
         {
             var command = new CreateOrganizationCommand("", "", DateTime.Now);
             var handler = new OrganizationHandler(new FakeOrganizationRepository());
-            Assert.Fail();
+            var result = handler.Handle(command);
+            Assert.AreEqual();
         }
 
         [TestMethod]
         public void Dado_um_comando_valido_deve_criar_a_tarefa()
         {
+            var command = new CreateOrganizationCommand("Título da Tarefa", "pedroferreira", DateTime.Now);
+            var handler = new OrganizationHandler(new FakeOrganizationRepository());
             Assert.Fail();
         }
     }
