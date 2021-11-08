@@ -45,6 +45,9 @@ namespace Organization.Domain.Handlers
             //Recupera o OrganizationItem (Rehidratação)
             var organization = _repository.GetById(command.Id, command.User);
 
+            //Altera o titulo
+            organization.UpdateTitle(command.Title);
+
             //Salva no banco
             _repository.Create(organization);
 
