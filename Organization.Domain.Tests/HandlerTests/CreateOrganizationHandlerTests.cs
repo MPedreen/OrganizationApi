@@ -1,6 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Organization.Domain.Commands;
+using Organization.Domain.Commands.Contracts;
 using Organization.Domain.Handlers;
 using Organization.Domain.Tests.Repository;
 
@@ -14,7 +15,7 @@ namespace Organization.Domain.Tests.HandlerTests
         {
             var command = new CreateOrganizationCommand("", "", DateTime.Now);
             var handler = new OrganizationHandler(new FakeOrganizationRepository());
-            var result = handler.Handle(command);
+            var result = (GenericCommandResult)handler.Handle(command);
             Assert.AreEqual();
         }
 
