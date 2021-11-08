@@ -24,7 +24,8 @@ namespace Organization.Domain.Tests.HandlerTests
         {
             var command = new CreateOrganizationCommand("Título da Tarefa", "pedroferreira", DateTime.Now);
             var handler = new OrganizationHandler(new FakeOrganizationRepository());
-            Assert.Fail();
+            var result = (GenericCommandResult)handler.Handle(command);
+            Assert.AreEqual(result.Success, true);
         }
     }
 }
