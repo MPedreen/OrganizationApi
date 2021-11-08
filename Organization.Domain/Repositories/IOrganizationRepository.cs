@@ -1,3 +1,4 @@
+using System;
 using Organization.Domain.Entities;
 
 namespace Organization.Domain.Repositories
@@ -6,5 +7,6 @@ namespace Organization.Domain.Repositories
     {
         void Create(OrganizationItem organization);
         void Update(OrganizationItem organization);
+        OrganizationItem GetById(Guid id, string user);
     }
 }
