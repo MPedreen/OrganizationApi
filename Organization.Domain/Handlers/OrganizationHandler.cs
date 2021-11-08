@@ -10,7 +10,9 @@ namespace Organization.Domain.Handlers
     public class OrganizationHandler :
     Notifiable,
     IHandler<CreateOrganizationCommand>,
-    IHandler<UpdateOrganizationCommand>
+    IHandler<UpdateOrganizationCommand>,
+    IHandler<MarkOrganizationAsDoneCommand>,
+    IHandler<MarkOrganizationAsUnDoneCommand>
     {
         private readonly IOrganizationRepository _repository;
 
@@ -54,5 +56,26 @@ namespace Organization.Domain.Handlers
             //Retorna o resultado
             return new GenericCommandResult(true, "Tarefa salva", organization);
         }
+
+        public ICommandResult Handle(MarkOrganizationAsDoneCommand command)
+        {
+            //Fail Fast Validation
+            command.Validate();
+            if (command.Invalid)
+                return new GenericCommandResult(false, "Ops, parece que sua tarefa está errada!", command.Notifications);
+
+            //Recupera o OrganizationItem (Rehidratação)
+            var organization = _repository.GetById(command.Id, command.User);
+
+            //Altera o estado
+            organization.MarkAsDone();
+
+            //Salva no banco
+            _repository.Update(organization);
+
+            //Retorna o resultado
+            return new GenericCommandResult(true, "Tarefa salva", organization);
+        }
+
     }
 }
