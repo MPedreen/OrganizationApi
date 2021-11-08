@@ -16,7 +16,7 @@ namespace Organization.Domain.Tests.HandlerTests
             var command = new CreateOrganizationCommand("", "", DateTime.Now);
             var handler = new OrganizationHandler(new FakeOrganizationRepository());
             var result = (GenericCommandResult)handler.Handle(command);
-            Assert.AreEqual();
+            Assert.AreEqual(result.Success, false);
         }
 
         [TestMethod]
