@@ -49,7 +49,7 @@ namespace Organization.Domain.Handlers
             organization.UpdateTitle(command.Title);
 
             //Salva no banco
-            _repository.Create(organization);
+            _repository.Update(organization);
 
             //Retorna o resultado
             return new GenericCommandResult(true, "Tarefa salva", organization);
