@@ -11,5 +11,10 @@ namespace Organization.Domain.Infra.Contexts
         }
 
         public DbSet<OrganizationItem> Organizations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TodoItem>().ToTable("Todo");
+        }
     }
 }
