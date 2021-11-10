@@ -25,6 +25,7 @@ namespace Organization.Domain.Tests.EntityTests
         public void Dada_a_consulta_deve_retornar_tarefas_apenas_do_usuario_pedroferreira()
         {
             var result = _items.AsQueryable().Where(OrganizationQueries.GetAll("pedroferreira"));
+            Assert.AreEqual(2, result.Count());
         }
     }
 }
