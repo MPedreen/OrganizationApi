@@ -10,5 +10,9 @@ namespace Organization.Domain.Queries
         {
             return x => x.User == user;
         }
+        public static Expression<Func<OrganizationItem, bool>> GetAllDone(string user)
+        {
+            return x => x.User == user && x.Done;
+        }
     }
 }
