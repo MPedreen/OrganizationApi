@@ -13,6 +13,12 @@ namespace Organization.Domain.Queries
         public static Expression<Func<OrganizationItem, bool>> GetAllDone(string user)
         {
             return x => x.User == user && x.Done;
+            //ou
+            //return x => x.User == user && x.Done == true;
+        }
+        public static Expression<Func<OrganizationItem, bool>> GetAllUnDone(string user)
+        {
+            return x => x.User == user && x.Done == false;
         }
     }
 }
