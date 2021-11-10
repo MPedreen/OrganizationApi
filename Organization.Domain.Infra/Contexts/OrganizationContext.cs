@@ -12,6 +12,7 @@ namespace Organization.Domain.Infra.Contexts
 
         public DbSet<OrganizationItem> Organizations { get; set; }
 
+        //mapeamento do banco
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<OrganizationItem>().ToTable("Organization");
