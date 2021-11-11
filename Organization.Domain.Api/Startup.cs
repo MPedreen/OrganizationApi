@@ -26,6 +26,9 @@ namespace Organization.Domain.Api
             //para mudar pra sqlserver:
             //services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
+            services.AddTransient<IOrganizationRepository, OrganizationRepository>();
+            services.AddTransient<OrganizationHandler, OrganizationHandler>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Organization.Domain.Api", Version = "v1" });
