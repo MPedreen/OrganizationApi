@@ -5,7 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Organization.Domain.Handlers;
 using Organization.Domain.Infra.Contexts;
+using Organization.Domain.Repositories;
 
 namespace Organization.Domain.Api
 {
