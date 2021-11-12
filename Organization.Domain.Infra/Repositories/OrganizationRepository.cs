@@ -24,7 +24,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public IEnumerable<OrganizationItem> GetAll(string user)
         {
-            throw new NotImplementedException();
+            return _context.Organizations;
         }
 
         public IEnumerable<OrganizationItem> GetAllDone(string user)
