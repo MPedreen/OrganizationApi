@@ -17,7 +17,8 @@ namespace Organization.Domain.Infra.Repositories
 
         public void Create(OrganizationItem organization)
         {
-            throw new NotImplementedException();
+            _context.Organizations.Add(organization);
+            _context.SaveChanges();
         }
 
         public IEnumerable<OrganizationItem> GetAll(string user)
