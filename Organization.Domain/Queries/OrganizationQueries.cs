@@ -23,6 +23,11 @@ namespace Organization.Domain.Queries
             return x => x.User == user && x.Done == false;
         }
 
+        public static Expression<Func<OrganizationItem, bool>> GetById(Guid id, string user)
+        {
+            return x => x.Id == id && x.User == user;
+        }
+
         public static Expression<Func<OrganizationItem, bool>> GetByPeriod(string user, DateTime date, bool done)
         {
             return x =>

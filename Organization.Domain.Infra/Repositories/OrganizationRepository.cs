@@ -41,7 +41,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public OrganizationItem GetById(Guid id, string user)
         {
-            throw new NotImplementedException();
+
         }
 
         public IEnumerable<OrganizationItem> GetByPeriod(string user, DateTime date, bool done)
