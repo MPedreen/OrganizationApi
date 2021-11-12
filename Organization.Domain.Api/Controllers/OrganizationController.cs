@@ -26,6 +26,13 @@ namespace Organization.Domain.Api.Controllers
             return repository.GetAllDone("pedroferreira");
         }
 
+        [Route("undone")]
+        [HttpGet]
+        public IEnumerable<OrganizationItem> GetAllUnDone([FromServices] IOrganizationRepository repository)
+        {
+            return repository.GetAllUndone("pedroferreira");
+        }
+
         [Route("")]
         [HttpPost]
         public GenericCommandResult Create([FromBody] CreateOrganizationCommand command, [FromServices] OrganizationHandler handler)
