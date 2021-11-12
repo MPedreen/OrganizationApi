@@ -1,12 +1,20 @@
 using System;
 using System.Collections.Generic;
 using Organization.Domain.Entities;
+using Organization.Domain.Infra.Contexts;
 using Organization.Domain.Repositories;
 
 namespace Organization.Domain.Infra.Repositories
 {
     public class OrganizationRepository : IOrganizationRepository
     {
+        private readonly DataContext _context;
+
+        public OrganizationRepository(DataContext context)
+        {
+            _context = context;
+        }
+
         public void Create(OrganizationItem organization)
         {
             throw new NotImplementedException();
