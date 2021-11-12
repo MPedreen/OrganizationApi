@@ -48,6 +48,20 @@ namespace Organization.Domain.Api.Controllers
             return repository.GetByPeriod("pedroferreira", DateTime.Now, false);
         }
 
+        [Route("done/tomorrow")]
+        [HttpGet]
+        public IEnumerable<OrganizationItem> GetDoneForTomorrow([FromServices] IOrganizationRepository repository)
+        {
+            return repository.GetByPeriod("pedroferreira", DateTime.Now.AddDays(1), true);
+        }
+
+        [Route("undone/tomorrow")]
+        [HttpGet]
+        public IEnumerable<OrganizationItem> GetUnDoneForTomorrow([FromServices] IOrganizationRepository repository)
+        {
+            return repository.GetByPeriod("pedroferreira", DateTime.Now.AddDays(1), false);
+        }
+
         [Route("")]
         [HttpPost]
         public GenericCommandResult Create([FromBody] CreateOrganizationCommand command, [FromServices] OrganizationHandler handler)
