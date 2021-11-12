@@ -80,5 +80,16 @@ namespace Organization.Domain.Api.Controllers
             command.User = "pedroferreira";
             return (GenericCommandResult)handler.Handle(command);
         }
+
+        [Route("mark-as-done")]
+        [HttpPut]
+        public GenericCommandResult MarkAsDone(
+            [FromBody] MarkOrganizationAsDoneCommand command,
+            [FromServices] OrganizationHandler handler
+        )
+        {
+            command.User = "pedroferreira";
+            return (GenericCommandResult)handler.Handle(command);
+        }
     }
 }
