@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Organization.Domain.Commands;
@@ -31,6 +32,13 @@ namespace Organization.Domain.Api.Controllers
         public IEnumerable<OrganizationItem> GetAllUnDone([FromServices] IOrganizationRepository repository)
         {
             return repository.GetAllUndone("pedroferreira");
+        }
+
+        [Route("done/today")]
+        [HttpGet]
+        public IEnumerable<OrganizationItem> GetDoneForToday([FromServices] IOrganizationRepository repository)
+        {
+            return repository.GetByPeriod("pedrofereira", DateTime.Now, true);
         }
 
         [Route("")]
