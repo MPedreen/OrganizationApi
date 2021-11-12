@@ -13,7 +13,8 @@ namespace Organization.Domain.Api.Controllers
         [HttpPost]
         public GenericCommandResult Create([FromBody] CreateOrganizationCommand command, [FromServices] OrganizationHandler handler)
         {
-
+            command.User = "pedroferreira";
+            return (GenericCommandResult)handler.Handle(command);
         }
     }
 }
