@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Organization.Domain.Entities;
 using Organization.Domain.Infra.Contexts;
 using Organization.Domain.Repositories;
@@ -48,7 +49,8 @@ namespace Organization.Domain.Infra.Repositories
 
         public void Update(OrganizationItem organization)
         {
-            throw new NotImplementedException();
+            _context.Entry(organization).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
