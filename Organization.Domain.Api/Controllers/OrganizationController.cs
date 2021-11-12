@@ -95,7 +95,7 @@ namespace Organization.Domain.Api.Controllers
         [Route("mark-as-undone")]
         [HttpPut]
         public GenericCommandResult MarkAsUnDone(
-            [FromBody] MarkOrganizationAsDoneCommand command,
+            [FromBody] MarkOrganizationAsUnDoneCommand command,
             [FromServices] OrganizationHandler handler
         )
         {

@@ -6,4 +6,7 @@ services.AddTransient
 services.AddScoped
 services.AddSingleton
 
+Chama os repositórios quando é leitura e chama os handlers quando é escrita.
+Leitura: trás as informações que vc quer
+Escrita: cria, altera, deleta (manipula) as informaçoes do banco
 */
