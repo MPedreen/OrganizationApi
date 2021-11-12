@@ -36,7 +36,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public IEnumerable<OrganizationItem> GetAllUndone(string user)
         {
-            throw new NotImplementedException();
+            return _context.Organizations.AsNoTracking().Where(OrganizationQueries.GetAllUnDone(user)).OrderBy(x => x.Date);
         }
 
         public OrganizationItem GetById(Guid id, string user)
