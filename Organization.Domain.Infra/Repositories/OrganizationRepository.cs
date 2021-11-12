@@ -41,7 +41,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public OrganizationItem GetById(Guid id, string user)
         {
-
+            return _context.Organizations.FirstOrDefault(OrganizationQueries.GetById(id, user));
         }
 
         public IEnumerable<OrganizationItem> GetByPeriod(string user, DateTime date, bool done)
