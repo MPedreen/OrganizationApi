@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Organization.Domain.Entities;
 using Organization.Domain.Infra.Contexts;
+using Organization.Domain.Queries;
 using Organization.Domain.Repositories;
 
 namespace Organization.Domain.Infra.Repositories
@@ -24,7 +26,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public IEnumerable<OrganizationItem> GetAll(string user)
         {
-            return _context.Organizations;
+            return _context.Organizations.AsNoTracking().Where(OrganizationQueries.GetAll(user)).OrderBy(x => x.Date);
         }
 
         public IEnumerable<OrganizationItem> GetAllDone(string user)
