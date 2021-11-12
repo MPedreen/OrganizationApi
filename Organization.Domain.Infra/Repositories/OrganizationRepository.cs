@@ -46,7 +46,7 @@ namespace Organization.Domain.Infra.Repositories
 
         public IEnumerable<OrganizationItem> GetByPeriod(string user, DateTime date, bool done)
         {
-            throw new NotImplementedException();
+            return _context.Organizations.AsNoTracking().Where(OrganizationQueries.GetByPeriod(user, date, done)).OrderBy(x => x.Date);
         }
 
         public void Update(OrganizationItem organization)
