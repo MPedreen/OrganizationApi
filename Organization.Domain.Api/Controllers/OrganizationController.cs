@@ -38,7 +38,14 @@ namespace Organization.Domain.Api.Controllers
         [HttpGet]
         public IEnumerable<OrganizationItem> GetDoneForToday([FromServices] IOrganizationRepository repository)
         {
-            return repository.GetByPeriod("pedrofereira", DateTime.Now, true);
+            return repository.GetByPeriod("pedroferreira", DateTime.Now, true);
+        }
+
+        [Route("undone/today")]
+        [HttpGet]
+        public IEnumerable<OrganizationItem> GetUnDoneForToday([FromServices] IOrganizationRepository repository)
+        {
+            return repository.GetByPeriod("pedroferreira", DateTime.Now, false);
         }
 
         [Route("")]
