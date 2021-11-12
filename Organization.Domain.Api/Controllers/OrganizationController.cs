@@ -69,5 +69,16 @@ namespace Organization.Domain.Api.Controllers
             command.User = "pedroferreira";
             return (GenericCommandResult)handler.Handle(command);
         }
+
+        [Route("")]
+        [HttpPut]
+        public GenericCommandResult Update(
+           [FromBody] UpdateOrganizationCommand command,
+           [FromServices] OrganizationHandler handler
+       )
+        {
+            command.User = "pedroferreira";
+            return (GenericCommandResult)handler.Handle(command);
+        }
     }
 }
