@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Organization.Domain.Handlers;
 using Organization.Domain.Infra.Contexts;
@@ -31,6 +33,20 @@ namespace Organization.Domain.Api
             services.AddTransient<IOrganizationRepository, OrganizationRepository>();
             services.AddTransient<OrganizationHandler, OrganizationHandler>();
 
+            services
+               .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+               .AddJwtBearer(options =>
+               {
+                   options.Authority = "https://securetoken.google.com/organizations-5e227";
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuer = true,
+                       ValidIssuer = "https://securetoken.google.com/organizations-5e227",
+                       ValidateAudience = true,
+                       ValidAudience = "organizations-5e227",
+                       ValidateLifetime = true
+                   };
+               });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
