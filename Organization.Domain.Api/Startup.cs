@@ -31,10 +31,6 @@ namespace Organization.Domain.Api
             services.AddTransient<IOrganizationRepository, OrganizationRepository>();
             services.AddTransient<OrganizationHandler, OrganizationHandler>();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Organization.Domain.Api", Version = "v1" });
-            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
